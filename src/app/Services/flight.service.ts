@@ -72,14 +72,14 @@ export class FlightService {
 
   public GetAirline():Observable<any>
   {
-    // var jwtToken = localStorage.getItem('token');
-    // const headers = new HttpHeaders({
-    //   'content-type': 'application/json',
-    //   Authorization: `Bearer ${jwtToken}`
-    // });
-    // let endPoint=this.apiInvUrl+"Airline/search";
-    // return this.httpClient.get(this.apiGetAirlines,{headers:headers});
-    return this.httpClient.get(this.apiGetAirlines);
+    var jwtToken = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'content-type': 'application/json',
+      Authorization: `Bearer ${jwtToken}`
+    });
+    let endPoint=this.apiInvUrl+"Airline/search";
+    return this.httpClient.get(this.apiGetAirlines,{headers:headers});
+    // return this.httpClient.get(this.apiGetAirlines);
   }
 
   public GetCoupons():Observable<any>

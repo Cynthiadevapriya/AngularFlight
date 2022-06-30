@@ -23,8 +23,7 @@ export class RegisterComponent implements OnInit {
       password:['',[Validators.required,Validators.minLength(6)]],
       Age:['',Validators.required],
       Gender:['',Validators.required]
-      // confirmPassword:['',Validators.required],
-      // acceptTerms:[false,Validators.requiredTrue]
+     
 
   },
   // {
@@ -51,6 +50,6 @@ export class RegisterComponent implements OnInit {
   }
   Login()
   {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/Login']);
   }
 }
