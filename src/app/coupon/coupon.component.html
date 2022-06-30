@@ -1,0 +1,27 @@
+<app-admin-home></app-admin-home>
+<div class="row d-flex justify-content-center" >
+<div class="col-sm-8">
+    <h3 style="text-align: center; margin-top: 20px;">Coupons</h3>
+    <!-- <div><br></div> -->
+    <button class="btn btn-primary mr-1" (click)="Open()" >Add Coupon</button>
+    <br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th>CouponCode</th> 
+            <th>Amount</th>
+            <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of coupons">
+                <td>{{item.code}}</td>
+                <td>{{item.amount}}</td>
+                <td><button class="btn btn-primary mr-1" (click)="Delete(item)" >Delete</button></td>
+
+            </tr> 
+        </tbody>
+    </table>
+</div>
+</div>
+

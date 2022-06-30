@@ -1,0 +1,45 @@
+<app-admin-home></app-admin-home>
+<div class="row d-flex justify-content-center" >
+<div class="col-sm-12">
+    <h3 style="text-align: center; margin-top: 20px;">All Schedules</h3>
+    <!-- <div><br></div> -->
+    <button class="btn btn-primary mr-1" (click)="AddSch()" >Add New Schedule</button>
+    <br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th>Id</th>
+            <th>FlightNumber</th> 
+            <th>AirlineId</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>StartTime</th>
+            <th>EndTime</th>
+            <th>Instrument</th>
+            <th>BSeatsNo</th>
+            <th>NBSeatsNo</th>
+            <th>TicketCost</th>
+            <th>Meal</th>
+            <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of allSchedules">
+                <td>{{item.id}}</td>
+                <td>{{item.flightNumber}}</td>
+                <td>{{item.airlineId}}</td>
+                <td>{{item.from}}</td>
+                <td>{{item.to}}</td>
+                <td>{{item.startTime}}</td>
+                <td>{{item.endTime}} </td>
+                <td>{{item.instrument}}</td>
+                <td>{{item.noOfBusinessSeats}}</td>
+                <td>{{item.noOfNonBusinessSeats}}</td>
+                <td>{{item.ticketCost}}</td>
+                <td>{{item.meal}}</td>
+                <td><button class="btn btn-primary mr-1" (click)="Open(item)" >Edit</button></td>
+            </tr> 
+        </tbody>
+    </table>
+</div>
+</div>

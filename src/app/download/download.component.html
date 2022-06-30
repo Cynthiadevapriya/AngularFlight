@@ -1,0 +1,65 @@
+<app-user-home></app-user-home>
+<div class="d-flex justify-content-center">
+    <div class="card m-3">
+        <div class="card-body">
+            <form [formGroup]="downloadForm" >
+                <div class="row" style="background-color:white;padding:10px; margin-top: 10px;">
+                    <h4 style="text-align: center;">Download</h4>
+                </div>
+                <br>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>PNRNumber</label>
+                        <input type="text" formControlName="PNRNumber" class="form-control" />
+                    </div>
+                </div>
+                <br>
+
+                <div class="text-center">
+                    <button class="btn btn-primary mr-1" (click)="GetTicketDet(downloadForm.value)">Search</button>&nbsp;
+                    <button class="btn btn-secondary" type="reset" (click)="onReset()">Clear </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row d-flex justify-content-center" >
+    <div class="col-sm-12">
+        <h3 style="text-align: center; margin-top: 20px;">Ticket Details</h3>
+        <div><br></div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                <th>FlightNumber</th>
+                <th>Source</th> 
+                <th>Destination</th>
+                <th>StartTime</th>
+                <th>EndTime</th>
+                <th>MealType</th>
+                <th>NoOfSeatsBooked</th>
+                <th>SeatNumbers</th>
+                <th>Action</th>
+                </tr>
+            
+            </thead>
+            <tbody>
+                <tr >
+                    <td>{{ticket.flightNumber}}</td>
+                    <td>{{ticket.from}}</td>
+                    <td>{{ticket.to}}</td>
+                    <td>{{ticket.startTime}}</td>
+                    <td>{{ticket.endTime}} </td>
+                    <td>{{ticket.meal}}</td>        
+                    <td>{{ticket.noOfSeatsBooked}}</td>
+                    <td>{{ticket.seatNumbers}}</td>
+                    <!-- <td><button class="btn btn-primary mr-1"  >Download</button></td> -->
+                    <button class="btn btn-primary mr-1" (click)="generatePdf(ticket)">Generate PDF</button>
+                </tr> 
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+
+

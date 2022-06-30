@@ -1,0 +1,82 @@
+<app-admin-home></app-admin-home>
+<div class="d-flex justify-content-center">
+    <div class="card m-3">
+        <h5 class="card-header"> Flight Scheduling</h5>
+        <div class="card-body">
+            <form [formGroup]="scheduleForm" >
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>FlightNumber</label>
+                        <input type="number" formControlName="FlightNumber" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Instrument</label>
+                        <input type="text" formControlName="Instrument" class="form-control" /> 
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Airline</label>
+                        <select formControlName="AirlineId" class="form-select">
+                            <option *ngFor="let airline of airlines" value = {{airline.id}}> {{airline.airlineName}} </option>
+                        </select>                   
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>Source</label>
+                        <input type="text" formControlName="From" class="form-control" />
+                        
+                    </div>
+                    <div class="form-group">
+                        <label>Destination</label>
+                        <input type="text" formControlName="To" class="form-control" />
+                        
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>StartTime</label>
+                        <input type="datetime-local" formControlName="StartTime" class="form-control" />
+                        
+                    </div>
+                    <div class="form-group">
+                        <label>EndTime</label>
+                        <input type="datetime-local" formControlName="EndTime" class="form-control" />
+                    </div>
+                </div>             
+               
+                
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>BusinessSeats</label>
+                        <input type="number" formControlName="NoOfBusinessSeats" class="form-control" />
+                    </div>
+                    <div class="form-group ">
+                        <label>NonBusinessSeats</label>
+                        <input type="number" formControlName="NoOfNonBusinessSeats" class="form-control" />
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>TicketCost</label>
+                        <input type="number" formControlName="TicketCost" class="form-control" />
+                        
+                    </div>
+                    <div class="form-group ">
+                        
+                        <label>MealType</label>
+                        <select formControlName="Meal" class="form-select">
+                            <option value = None> None </option>
+                            <option value = Veg> Veg </option>
+                            <option value = Non-Veg> Non-Veg </option>
+                        </select>                    
+                    </div>
+                </div>
+                <br>
+                <div class="text-center">
+                    <button class="btn btn-primary mr-1" (click)="Schedule(scheduleForm.value)" >Schedule</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

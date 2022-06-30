@@ -1,0 +1,41 @@
+<app-admin-home></app-admin-home>
+
+
+<div class="d-flex justify-content-center">
+    <div class="card m-3">
+        <div class="card-body">
+            <form [formGroup]="airlineForm" >
+                <div class="row" style="background-color:white;padding:10px; margin-top: 10px;">
+                    <h4 style="text-align: center;">Add Airline</h4>
+                </div>
+                <br>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>Airlinename</label>
+                        <input type="text" formControlName="Airlinename" class="form-control" />
+                    </div>
+                </div>
+                <br>
+                <div class="form-check enable" >
+                    <label>
+                    <input type="checkbox" formControlName="IsEnable" class="form-check-input" />IsEnable
+                    </label>
+                </div>
+                <br>
+                    <!-- <div class="form-row">
+                    <div class="form-group col">
+                        <label>Password</label>
+                        <input type="password" formControlName="password" class="form-control" />
+                    </div>
+                </div> -->
+                <div class="text-center">
+                    <button class="btn btn-primary mr-1" (click)="AirlineRegister(airlineForm.value)">Add</button>&nbsp;
+                    <button class="btn btn-secondary" type="reset" (click)="onReset()">Clear </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

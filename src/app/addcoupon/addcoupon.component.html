@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add New Coupon</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="couponForm" >
+        <div class="form-row">
+            <div class="form-group col">
+                <label>Code</label>
+                <input type="text" formControlName="Code" class="form-control" />
+            </div>
+        </div>
+        <br>
+        <div class="form-row">
+            <div class="form-group col">
+                <label>Discount Amount</label>
+                <input type="text" formControlName="Amount" class="form-control" />
+            </div>
+        </div>
+        <br>
+           
+        <div class="text-center">
+            <button class="btn btn-primary mr-1" (click)="AddCoupon(couponForm.value)">Add</button>&nbsp;
+        </div>
+    </form>
+  </div>

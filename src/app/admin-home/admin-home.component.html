@@ -1,0 +1,13 @@
+<nav class="navbar navbar-dark bg-primary ">
+    <div class="row"><br><br></div>
+
+    <div class="container-fluid">
+        <h1 class="navbar-brand" style="color: whitesmoke; margin-left: 10px;">Admin Home </h1>
+        <div class="d-flex">
+            <button [routerLink]="['/schedules']" class="btn btn-success mx-3">Manage Schedules</button>
+            <button routerLink="/coupon" class="btn btn-success mx-3"> Manage Discounts</button>
+            <button [routerLink]="['/Airline']" class="btn btn-success mx-3">Manage Airlines</button>
+            <button (click)="Logout()" class="btn btn-danger mx-3">LogOut</button>
+        </div>
+    </div>
+</nav>

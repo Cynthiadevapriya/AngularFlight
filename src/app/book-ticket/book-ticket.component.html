@@ -1,0 +1,106 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Book Ticket</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="bookingForm" >
+        <div class="form-group col">
+            <label>Flight Number</label>
+            <input type="text" formControlName="FlightNumber" class="form-control"  readonly/>                            
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label>Source</label>
+                <input type="text" formControlName="From" class="form-control" readonly />                            
+            </div>
+            <div class="form-group ">
+                <label>Destination</label>
+                <input type="text" formControlName="To" class="form-control" readonly />                            
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label>StartTime</label>
+                <input type="datetime-local" formControlName="StartTime" class="form-control" readonly />                            
+            </div>
+            <div class="form-group ">
+                <label>EndTime</label>
+                <input type="datetime-local" formControlName="EndTime" class="form-control" readonly />                            
+            </div>
+        </div>
+        <br>
+        
+        <div class="form-row">
+            <div class="form-group col">
+                <label>NoOfSeats</label>
+                <input type="text" formControlName="NoOfSeatsBooked" (change)="valuechange($event)" class="form-control" />                            
+            </div>
+            <div class="form-group ">
+                <label>Coupon</label>
+                <select formControlName="Coupon" class="form-select" (change)="Discount($event)">
+                        <option *ngFor="let coupon of coupons" value = {{coupon.id}} > {{coupon.code}} </option>
+                </select>                         
+            </div>
+            <div class="form-group ">
+                <label>Cost</label>
+                <input type="number" formControlName="TicketCost" class="form-control"  />                            
+            </div>
+            <br>
+            <div class="container">  
+      
+                <form [formGroup]="passengerForm" >  
+                  <table class="table table-bordered" formArrayName="passengers">  
+                    <tr>  
+                      <th colspan="2">Enter Passengers details:</th>  
+                      <th width="100px"><button type="button" (click)="addPassenger()" class="btn btn-primary">Add More</button></th>  
+                    </tr>  
+                    <tr *ngFor="let passenger of Passengers().controls; let i=index" [formGroupName]="i">  
+                      <td>  
+                          Name :  
+                          <input type="text" formControlName="Name" class="form-control">  
+                      </td>  
+                      <td>  
+                          Age:  
+                          <input type="text" formControlName="Age" class="form-control">  
+                      </td>
+                      <td>  
+                        Gender:  
+                        <input type="text" formControlName="Gender" class="form-control">  
+                    </td>  
+                    <td>    
+                      <td>  
+                        
+                          <button (click)="removePassenger(i)" class="btn btn-danger">Remove</button>  
+                      </td>  
+                    </tr>  
+                  </table>  
+                   
+                   <button type="submit" class="btn btn-success" (click)=onSubmit(this.passengerForm.value)>Done</button>  
+                    
+                </form>  
+                    
+                <br/>  
+                <!-- {{this.passengerForm.value | json}}    -->
+              </div> 
+            
+            <div class="form-group ">
+                <label>Meal</label>    
+                <select  formControlName="Meal" class="form-select" >
+                    <option value="None">None</option>  
+                    <option value="Veg">Veg</option>                            
+                    <option value="NonVeg">Non-Veg</option>                                                      
+                </select>                        
+            </div>
+        </div>
+        <br>
+        <div class="text-center">
+            <button class="btn btn-primary mr-1" (click)="BookTicket(bookingForm.value)" >Book</button>
+        </div>
+    </form>
+  </div>
+  <br>
+  
+  
+  

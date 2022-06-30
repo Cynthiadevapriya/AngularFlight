@@ -1,0 +1,27 @@
+<app-admin-home></app-admin-home>
+<div class="row d-flex justify-content-center" >
+<div class="col-sm-8">
+    <h3 style="text-align: center; margin-top: 20px;">Manage Airlines</h3>
+    <button class="btn btn-primary mr-1" (click)="AddAirline()" >AddAirline</button>
+    <div><br></div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th>AirlineId</th>
+            <th>AirlineName</th> 
+            <th>IsEnable</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of airlines">
+                <td>{{item.id}}</td>
+                <td>{{item.airlineName}}</td>
+                <td>{{item.isEnable}}</td>
+                <td><button class="btn btn-primary mr-1" (click)="BlockAirline(item.airlineName)" >Edit</button></td>
+                <!-- <td><button class="btn btn-primary mr-1" (click)="UnBlockAirline(item.airlineName)" >Unblock</button></td> -->
+            </tr> 
+        </tbody>
+    </table>
+</div>
+</div>

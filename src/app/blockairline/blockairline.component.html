@@ -1,0 +1,22 @@
+<app-admin-home></app-admin-home>
+
+<div class="d-flex justify-content-center">
+    <div class="card m-3">
+        <div class="card-body">
+            <form [formGroup]="blockFlightForm" >
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>AirlineName</label>
+                        <input type="text" formControlName="AirlineName" class="form-control" readonly/>
+                </div>
+                <br>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary mr-1" (click)="blockair(blockFlightForm.value)">Block</button>&nbsp;
+                    <button class="btn btn-primary mr-1" (click)="Unblockair(blockFlightForm.value)">UnBlock</button>&nbsp;
+                    <button class="btn btn-secondary" type="reset" (click)="onCancel()">cancel </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
